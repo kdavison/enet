@@ -92,3 +92,10 @@ add_library(enet STATIC
 if (MINGW)
     target_link_libraries(enet winmm ws2_32)
 endif()
+
+set_target_properties(enet PROPERTIES PUBLIC_HEADER "${INCLUDE_FILES}")
+INSTALL(
+  TARGETS enet
+  LIBRARY DESTINATION lib
+  PUBLIC_HEADER DESTINATION include/enet
+)
